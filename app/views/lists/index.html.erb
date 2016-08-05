@@ -1,6 +1,6 @@
 <h1>My Lists</h1>
 
-<%= link_to 'New list', new_list_path %>
+<%= link_to 'New list', new_list_path, {:class => 'btn btn-default', :role => 'button'} %>
 
 <ul>
   <% @lists.each do |list| %>
