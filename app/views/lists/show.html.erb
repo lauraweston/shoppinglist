@@ -1,0 +1,25 @@
+<h1>
+  <%= @list.name %>
+</h1>
+
+<%= link_to 'Add item', new_list_item_path(@list) %>
+
+<ul>
+  <% @items.each do |item| %>
+    <li>
+        <%= item.name %> 
+        <%= link_to 'Edit', edit_list_item_path(@list, item) %>
+        <%= link_to 'Delete', list_item_path(@list, item), 
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Home', controller: 'lists' %> | 
+<%= link_to 'Delete list', list_path(@list), 
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+
+
+

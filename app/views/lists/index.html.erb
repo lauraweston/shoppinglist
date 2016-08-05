@@ -1,0 +1,14 @@
+<h1>My Lists</h1>
+
+<%= link_to 'New list', new_list_path %>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li>
+        <%= link_to list.name, list_path(list) %> 
+        <%= link_to 'Delete', list_path(list), 
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
