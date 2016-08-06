@@ -9,8 +9,6 @@
     <a href="<%= new_list_path %>" class="btn btn-default" role="button">
       <span class="glyphicon glyphicon-plus"></span>
     </a>
-
-    
   </div>
 </div>
 
@@ -20,11 +18,12 @@
       <% @lists.each do |list| %>
         <li class="list-group-item">
           <%= link_to list.name, list_path(list) %>
-            <%= link_to 'Delete', list_path(list), 
+            <%= link_to ('<span class="glyphicon glyphicon-trash pull-right"></span>').html_safe, 
+            list_path(list), 
             method: :delete,
             data: { confirm: 'Are you sure?' } %>
         </li>
-        <% end %>
+      <% end %>
     </ul>
   </div>
 </div>
