@@ -1,14 +1,30 @@
-<h1>My Lists</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>My Lists</h1>
+  </div>
+</div>
 
-<%= link_to 'New list', new_list_path, {:class => 'btn btn-default', :role => 'button'} %>
+<div class="row">
+  <div class="col-xs-12">
+    <a href="<%= new_list_path %>" class="btn btn-default" role="button">
+      <span class="glyphicon glyphicon-plus"></span>
+    </a>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-        <%= link_to list.name, list_path(list) %> 
-        <%= link_to 'Delete', list_path(list), 
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <% @lists.each do |list| %>
+        <li class="list-group-item">
+          <%= link_to list.name, list_path(list) %>
+            <%= link_to 'Delete', list_path(list), 
             method: :delete,
             data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+        </li>
+        <% end %>
+    </ul>
+  </div>
+</div>
