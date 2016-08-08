@@ -11,6 +11,7 @@
     <a href="<%= new_list_item_path(@list) %>" class="btn btn-default" role="button">
       <span class="glyphicon glyphicon-plus"></span>
     </a>
+    <a href="<%= lists_path %>" class="pull-right">Back to all lists</a>
   </div>
 </div>
 
@@ -31,10 +32,15 @@
   </div>
 </div>
 
-<%= link_to 'Home', controller: 'lists' %> | 
-<%= link_to 'Delete list', list_path(@list), 
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
+<div class="row">
+  <div class="col-xs-12">
+    <p class="text-center">
+      <%= link_to 'Delete List', list_path(@list),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+    </p>
+  </div>
+</div>
 
 
 
