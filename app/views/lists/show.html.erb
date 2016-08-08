@@ -1,8 +1,18 @@
-<h1>
-  <%= @list.name %>
-</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>
+      <%= @list.name %>
+    </h1>
+  </div>
+</div>
 
-<%= link_to 'Add item', new_list_item_path(@list) %>
+<div class="row">
+  <div class="col-xs-12">
+    <a href="<%= new_list_item_path(@list) %>" class="btn btn-default" role="button">
+      <span class="glyphicon glyphicon-plus"></span>
+    </a>
+  </div>
+</div>
 
 <ul>
   <% @items.each do |item| %>
