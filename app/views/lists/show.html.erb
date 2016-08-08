@@ -14,17 +14,22 @@
   </div>
 </div>
 
-<ul>
-  <% @items.each do |item| %>
-    <li>
-        <%= item.name %> 
-        <%= link_to 'Edit', edit_list_item_path(@list, item) %>
-        <%= link_to 'Delete', list_item_path(@list, item), 
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <% @items.each do |item| %>
+        <li class="list-group-item">
+          <%= item.name %> 
+          <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_list_item_path(@list, item) %>
+          <%= link_to ('<span class="glyphicon glyphicon-trash pull-right"></span>').html_safe, 
+            list_item_path(@list, item), 
             method: :delete,
             data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
 <%= link_to 'Home', controller: 'lists' %> | 
 <%= link_to 'Delete list', list_path(@list), 
