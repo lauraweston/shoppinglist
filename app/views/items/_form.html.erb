@@ -1,10 +1,10 @@
- <%= form_for([@list, @item]) do |f| %>
+<%= form_for([@list, @item]) do |f| %>
 
   <% if @item.errors.any? %>
-    <div id="error_explanation">
-        <h2>
-            <%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:
-        </h2>
+    <div id="error_explanation" class="alert alert-danger">
+        <p>
+            <strong>Oops!</strong> You have <%= pluralize(@item.errors.count, "error") %>:
+        </p>
         <ul>
             <% @item.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
@@ -13,13 +13,12 @@
     </div>
   <% end %> 
 
-  <p>
-   <%= f.label :name %><br/>
-   <%= f.text_field :name %>
-  </p>
+  <div class="form-group">
+    <%= f.text_field :name, {:class => 'form-control', :placeholder => 'Item name'} %>
+  </div>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-default' %>
   </p>
   
 <% end %> 
