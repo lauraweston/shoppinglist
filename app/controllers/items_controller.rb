@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @list = List.find(@list_id)
     @item.list_id = @list_id
     if @item.save
-      redirect_to [@list, @item]
+      redirect_to @list
     else
       render 'new'
     end
