@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class ItemsController < MustBeLoggedInController
 
   def show
     @item = Item.find(params[:id])

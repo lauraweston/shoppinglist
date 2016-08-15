@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class ListsController < MustBeLoggedInController
   def index
     @lists = List.all
   end
