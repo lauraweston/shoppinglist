@@ -5,4 +5,9 @@ class AuthorisationController < ApplicationController
       redirect_to '/'
     end
   end
+
+  def logout
+    session.clear
+    redirect_to :action => 'login'
+  end
 end
