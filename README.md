@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Install postgres and create database ```shoppinglist``` is running on ```localhost``` (or modify ```config/database.yml```)
 
-Things you may want to cover:
+* ```rails db:migrate```
 
-* Ruby version
+* ```rails server```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Navigate in browser to [http://localhost:3000](http://localhost:3000)
