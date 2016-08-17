@@ -1,6 +1,6 @@
 # README
 
-* Install postgres and create database ```shoppinglist``` is running on ```localhost``` (or modify ```config/database.yml```)
+* Install postgres and create database ```shoppinglist``` on ```localhost``` (or modify ```config/database.yml```)
 
 * ```rails db:migrate```
 
