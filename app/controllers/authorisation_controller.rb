@@ -4,7 +4,6 @@ class AuthorisationController < ApplicationController
       # Redirect to page that has the login here
       redirect_to '/'
     end
-    @hide_logout_button = true
   end
 
   def logout

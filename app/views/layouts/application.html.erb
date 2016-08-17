@@ -12,14 +12,6 @@
   <body>
     <div class="container">
       <%= yield %>
-
-      <% unless @hide_logout_button %>
-        <div class="row">
-          <div class="col-xs-12">
-            <a href="<%= url_for :controller => 'authorisation', :action => 'logout' %>" class="btn btn-default">Log Out</a>
-          </div>
-        </div>
-      <% end %>
     </div>
   </body>
 </html>
