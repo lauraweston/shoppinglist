@@ -11,6 +11,13 @@
 
   <body>
     <div class="container">
+      <% if @user_email %>
+        <div class="row">
+          <div class="col-xs-12">
+            <p class="pull-right">Logged in as <%= @user_email %></p>
+          </div>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
