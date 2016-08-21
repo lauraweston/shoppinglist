@@ -1,6 +1,6 @@
 class ListsController < MustBeLoggedInController
   def index
-    @lists = List.all
+    @lists = List.where({ owner_id: owner_id })
   end
   
   def show
@@ -14,7 +14,7 @@ class ListsController < MustBeLoggedInController
 
   def create
     @list = List.new(list_params)
-    @list.owner_id = session[:userinfo]["uid"]
+    @list.owner_id = owner_id
     
     if @list.save
       redirect_to @list
@@ -32,5 +32,9 @@ class ListsController < MustBeLoggedInController
   private
     def list_params
       params.require(:list).permit(:name)
+    end
+    
+    def owner_id
+      session[:userinfo]["uid"]
     end
 end
