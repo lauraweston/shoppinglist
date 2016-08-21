@@ -8,7 +8,7 @@
    var lock = new Auth0Lock('7X5UfblyHesbtF0CxCZrVvJ9oRckMIBR', 'lauraweston.eu.auth0.com', {
      container: 'root',
      auth: {
-       redirectUrl: 'http://localhost:3000/auth/auth0/callback',
+       redirectUrl: '<%= request.base_url %><%= url_for controller: "auth0", action: "callback" %>',
        responseType: 'code',
        params: {
          scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
