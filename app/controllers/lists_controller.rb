@@ -14,6 +14,8 @@ class ListsController < MustBeLoggedInController
 
   def create
     @list = List.new(list_params)
+    @list.owner_id = session[:userinfo]["uid"]
+    
     if @list.save
       redirect_to @list
     else
