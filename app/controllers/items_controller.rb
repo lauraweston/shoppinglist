@@ -1,19 +1,16 @@
 class ItemsController < MustBeLoggedInController
 
-  def show
-    @item = Item.find(params[:id])
-    @list = @item.list
-  end
-
   def new
     @item = Item.new
     @list_id = params[:list_id]
     @list = List.find(@list_id)
+    return redirect_to '/' if user_does_not_own_list
   end
 
   def edit
     @item = Item.find(params[:id])
     @list = @item.list
+    return redirect_to '/' if user_does_not_own_list
   end
 
   def create
@@ -21,6 +18,9 @@ class ItemsController < MustBeLoggedInController
     @list_id = params[:list_id]
     @list = List.find(@list_id)
     @item.list_id = @list_id
+
+    return redirect_to '/' if user_does_not_own_list
+    
     if @item.save
       redirect_to @list
     else
@@ -31,6 +31,9 @@ class ItemsController < MustBeLoggedInController
   def update
     @item = Item.find(params[:id])
     @list = List.find(params[:list_id])
+    
+    return redirect_to '/' if user_does_not_own_list
+
     if @item.update(item_params)
       redirect_to list_path(params[:list_id])
     else
@@ -40,6 +43,10 @@ class ItemsController < MustBeLoggedInController
 
   def destroy
     @item = Item.find(params[:id])
+    @list = List.find(params[:list_id])
+    
+    return redirect_to '/' if user_does_not_own_list
+    
     @item.destroy
     redirect_to list_path(params[:list_id])
   end
@@ -47,5 +54,13 @@ class ItemsController < MustBeLoggedInController
   private
   def item_params
     params.require(:item).permit(:name)
+  end
+
+  def owner_id
+    session[:userinfo]["uid"]
+  end
+
+  def user_does_not_own_list
+    @list.owner_id != owner_id
   end
 end

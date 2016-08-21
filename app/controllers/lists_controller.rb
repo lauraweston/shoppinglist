@@ -6,6 +6,7 @@ class ListsController < MustBeLoggedInController
   def show
     @list = List.find(params[:id])
     @items = @list.items
+    return redirect_to '/' if user_does_not_own_list
   end
   
   def new
@@ -25,6 +26,9 @@ class ListsController < MustBeLoggedInController
 
   def destroy
     @list = List.find(params[:id])
+    
+    return redirect_to '/' if user_does_not_own_list
+
     @list.destroy
     redirect_to lists_path
   end
@@ -36,5 +40,9 @@ class ListsController < MustBeLoggedInController
     
     def owner_id
       session[:userinfo]["uid"]
+    end
+
+    def user_does_not_own_list
+      @list.owner_id != owner_id
     end
 end
