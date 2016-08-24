@@ -22,7 +22,10 @@
     <ul class="list-group">
       <% @items.each do |item| %>
         <li class="list-group-item">
-          <%= item.name %> 
+          <label>
+            <input type="checkbox">
+          <%= item.name %>
+          </label> 
           <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_list_item_path(@list, item) %>
           <%= link_to ('<span class="glyphicon glyphicon-trash pull-right"></span>').html_safe, 
             list_item_path(@list, item), 
