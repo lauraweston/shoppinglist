@@ -1,12 +1,17 @@
-<H1>ShoppingList</h1>
+<h1>Shopping List</h1>
 
-<div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;">
-    embeded area
+<div id="root" style="margin: 0px auto; padding: 10px;">
 </div>
 <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 <script>
    var lock = new Auth0Lock('7X5UfblyHesbtF0CxCZrVvJ9oRckMIBR', 'lauraweston.eu.auth0.com', {
      container: 'root',
+     theme: {
+       logo: '/login.png'
+     },
+     languageDictionary: {
+      title: "Login"
+     },
      auth: {
        redirectUrl: '<%= request.base_url %><%= url_for controller: "auth0", action: "callback" %>',
        responseType: 'code',
