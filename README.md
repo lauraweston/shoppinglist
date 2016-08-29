@@ -7,3 +7,4 @@
 * ```rails server```
 
 * Navigate in browser to [http://localhost:3000](http://localhost:3000)
+
