@@ -6,16 +6,7 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-xs-12">
-    <a href="<%= lists_path %>" class="btn btn-default" role="button">
-      <span class="glyphicon glyphicon-home"></span>
-    </a>
-    <a href="<%= new_list_item_path(@list) %>" class="btn btn-default pull-right" role="button">
-      <span class="glyphicon glyphicon-plus"></span>
-    </a>
-  </div>
-</div>
+<%= render 'list_actions' %>
 
 <div class="row">
   <div class="col-xs-12">
@@ -27,22 +18,24 @@
               <input type="checkbox" class="list-item-checkbox" value="<%= item.name %>">
               <%= item.name %>
             </label>
+            <%= link_to ('<span class="glyphicon glyphicon-pencil show-in-edit-mode"></span>').html_safe, edit_list_item_path(@list, item) %>
+            <%= link_to ('<span class="glyphicon glyphicon-trash pull-right show-in-edit-mode pull-right"></span>').html_safe, 
+              list_item_path(@list, item), 
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
           </div>
-          <%= link_to ('<span class="glyphicon glyphicon-pencil"></span>').html_safe, edit_list_item_path(@list, item) %>
-          <%= link_to ('<span class="glyphicon glyphicon-trash pull-right"></span>').html_safe, 
-            list_item_path(@list, item), 
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
         </li>
       <% end %>
     </ul>
   </div>
 </div>
 
+<%= render 'list_actions' %>
+
 <div class="row">
   <div class="col-xs-12">
     <p class="text-center">
-      <%= link_to 'Delete List', list_path(@list),
+      <%= link_to '<span class="show-in-edit-mode">Delete List</span>'.html_safe, list_path(@list),
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
     </p>

@@ -2,3 +2,11 @@ label.item-purchased {
     color: grey;
     text-decoration: line-through
 }
+
+.spaced-button {
+    margin-right: 10px;
+}
+
+.show-in-edit-mode {
+    display: none;
+}
